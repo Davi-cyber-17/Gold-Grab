@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#04060d">
+<title>Gold Grab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="grid"></div>
+<div id="scan"></div>
+
+<!-- MENU -->
+<div class="screen on" id="menu">
+  <div class="logo">GOLD<span>GRAB</span></div>
+  <div class="sub">// arena de reflexos //</div>
+  <p>Toque (ou clique) o mais rápido que puder para capturar o dinheiro no centro. <b class="g">Moeda +1</b> · <b class="g">Nota +3</b> · <b class="r">Bomba −2</b>. Tocar sem nada na mesa trava o seu painel por um instante.</p>
+  <button class="btn green" id="bOnline">Modo Online</button>
+  <button class="btn cyan" id="bLocal">Modo Local</button>
+  <small class="foot">PC · celular · tablet — todos jogam juntos online</small>
+</div>
+
+<!-- LOCAL -->
+<div class="screen" id="localSel">
+  <h2>Modo Local</h2>
+  <p>Todos jogam no mesmo aparelho, cada um no seu canto da tela.</p>
+  <button class="btn cyan" data-n="2">2 jogadores</button>
+  <button class="btn cyan" data-n="3">3 jogadores</button>
+  <button class="btn cyan" data-n="4">4 jogadores</button>
+  <button class="btn gray" data-back>Voltar</button>
+</div>
+
+<!-- ONLINE -->
+<div class="screen" id="onlineMenu">
+  <h2>Modo Online</h2>
+  <input id="nick" maxlength="10" placeholder="SEU NOME" autocomplete="off">
+  <button class="btn green" id="bCreate">Criar sala</button>
+  <div class="or">ou</div>
+  <input id="roomIn" maxlength="4" placeholder="CÓDIGO" autocomplete="off" autocapitalize="characters">
+  <button class="btn cyan" id="bJoin">Entrar na sala</button>
+  <button class="btn gray" data-back>Voltar</button>
+</div>
+
+<!-- LOBBY -->
+<div class="screen" id="lobby">
+  <h2>Sala</h2>
+  <div class="code" id="roomCode">----</div>
+  <div class="row">
+    <button class="btn mini gray" id="bCopy">Copiar código</button>
+    <button class="btn mini cyan" id="bShare">Compartilhar link</button>
+  </div>
+  <div class="plist" id="plist"></div>
+  <p id="lobbyMsg"></p>
+  <button class="btn green" id="bStart">Iniciar jogo</button>
+  <button class="btn red" id="bLeave">Sair da sala</button>
+</div>
+
+<!-- RESULTADO -->
+<div class="screen" id="result">
+  <h2 id="winner">Fim de jogo!</h2>
+  <div class="rank" id="rank"></div>
+  <button class="btn green" id="bAgain">Jogar de novo</button>
+  <button class="btn gray" id="bMenu">Menu</button>
+</div>
+
+<!-- JOGO -->
+<div id="game">
+  <div id="arena">
+    <div id="stage">
+      <div id="hud"><div id="timer">45</div><div id="barwrap"><div id="bar"></div></div></div>
+      <div class="pad" data-s="0"><div class="body"><span class="tag"></span><b class="score">0</b><em class="pull">PUXAR</em></div></div>
+      <div class="pad" data-s="1"><div class="body"><span class="tag"></span><b class="score">0</b><em class="pull">PUXAR</em></div></div>
+      <div class="pad" data-s="2"><div class="body"><span class="tag"></span><b class="score">0</b><em class="pull">PUXAR</em></div></div>
+      <div class="pad" data-s="3"><div class="body"><span class="tag"></span><b class="score">0</b><em class="pull">PUXAR</em></div></div>
+      <button id="pull" type="button"><span>PUXAR</span><small>toque aqui</small></button>
+      <button id="quit" aria-label="Sair"></button>
+      <div id="tip"></div>
+      <div id="flash"></div>
+      <div id="count"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
